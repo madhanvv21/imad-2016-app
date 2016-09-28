@@ -6,7 +6,10 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var articleone = {
+
+var articles = {
+    
+    articleone : {
     title:'Article One|Madhan',
     heading:'Article One',
     date:'5 sep 16',
@@ -16,6 +19,26 @@ var articleone = {
     <p>This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. </p>
             
     <p>This is the First Article.This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article.  </p>`
+     },
+    articletwo:{
+        title:'Article two|Madhan',
+    heading:'Article two',
+    date:'6 sep 16',
+    content:`
+    <p>This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .</p>
+    <p>This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .</p>
+    <p>This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .</p>`
+    },
+    articlethree:{
+        title:'Article three|Madhan',
+    heading:'Article three',
+    date:'7 sep 16',
+    content:`
+    <p>This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .</p>
+    <p>This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .</p>
+    <p>This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .</p>`
+    }
+    
 };
 
 function createtemplate(data){
@@ -52,15 +75,12 @@ return htmltemplate;
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/ui/article1',function(req,res){
-    res.send(createtemplate(articleone));
+app.get('/:articleName',function(req,res){
+    
+    var articleName=res.param.articleName;
+    res.send(createtemplate(articleName));
 });
-app.get('/ui/article2',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'article2.html'));
-});
-app.get('/ui/article3',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'article3.html'));
-});
+
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
