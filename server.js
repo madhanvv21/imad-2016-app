@@ -18,9 +18,34 @@ var articleone = {
     <p>This is the First Article.This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article.  </p>`
 };
 
-var htmltemplate =`
+function createtemplate(data){
+    
+    var htmltemplate =`
+        <html>
+            <head>
+                <title> ${title}</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+           
+               <link href="/ui/style.css" rel="stylesheet" />
+         </head>
+            <body>
+            
+                <div class="container">
+                    <div>
+                        <a href="/index.html">Home</a>
+                    </div><hr>
+                <div>
+                    ${date}
+                </div>
+                <div>
+                    ${content}
+                </div>
+            </div>
+            </body>
+        </html>
+        `;
 
-
+}
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
