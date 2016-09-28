@@ -19,7 +19,9 @@ var articleone = {
 };
 
 function createtemplate(data){
-    
+    var date=data.date;
+    var title=data.title;
+    var content=data.content;
     var htmltemplate =`
         <html>
             <head>
@@ -44,14 +46,14 @@ function createtemplate(data){
             </body>
         </html>
         `;
-
+return htmltemplate; 
 }
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 app.get('/ui/article1',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'article1.html'));
+    res.send(createtemplate(articleone));
 });
 app.get('/ui/article2',function(req,res){
     res.sendFile(path.join(__dirname, 'ui', 'article2.html'));
