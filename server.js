@@ -7,22 +7,40 @@ app.use(morgan('combined'));
 
 
 
-var articleOne = {
+var articles={
+'article-one' : {
     title:'Article one|Madhan',
     heading:'Article one',
     date:'20 sep 16',
     content:` <p>This is the First Article.This is the First Article.This is the First Article. This is the First Article.  This is the First Article.   This is the First Article. This is the First Article. This is the First Article.  This is the First Article.  This is the First Article.  This is the First Article. This is the First Article.  This is the This is the First Article.  is the First Article. First Article. vThis is the First Article. This is the First Article. This is the First Article. This is the First Article. </p>
             <p>This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. </p>
             <p>This is the First Article.This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article.  </p>`
-    };
-
+    },
+    'article-two':{
+    title:'Article Two|Madhan',
+    heading:'Article Two',
+    date:'22 sep 16',
+    content:` <p>This is the First Article.This is the First Article.This is the First Article. This is the First Article.  This is the First Article.   This is the First Article. This is the First Article. This is the First Article.  This is the First Article.  This is the First Article.  This is the First Article. This is the First Article.  This is the This is the First Article.  is the First Article. First Article. vThis is the First Article. This is the First Article. This is the First Article. This is the First Article. </p>
+            <p>This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. </p>
+            <p>This is the First Article.This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article.  </p>`
+        
+    },
+    'article-three':{
+    title:'Article Three|Madhan',
+    heading:'Article Three',
+    date:'20 sep 16',
+    content:` <p>This is the First Article.This is the First Article.This is the First Article. This is the First Article.  This is the First Article.   This is the First Article. This is the First Article. This is the First Article.  This is the First Article.  This is the First Article.  This is the First Article. This is the First Article.  This is the This is the First Article.  is the First Article. First Article. vThis is the First Article. This is the First Article. This is the First Article. This is the First Article. </p>
+            <p>This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. </p>
+            <p>This is the First Article.This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article.  </p>`
+    }
+};
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 app.get('/:articleName',function(req,res){
     
     var articleName=reg.params.articleName;
-    res.send(createtemplate(articles[articleName]));
+    res.send(createTemplate(articles[articleName]));
 });
 
 
