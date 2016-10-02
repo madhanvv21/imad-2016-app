@@ -7,70 +7,14 @@ app.use(morgan('combined'));
 
 
 
-var articles = {
-    
-    'article-one' : {
-    title:'Article One|Madhan',
-    heading:'Article One',
-    date:'5 sep 16',
-    content:`
-    <p>This is the First Article.This is the First Article.This is the First Article. This is the First Article.  This is the First Article.   This is the First Article. This is the First Article. This is the First Article.  This is the First Article.  This is the First Article.  This is the First Article. This is the First Article.  This is the This is the First Article.  is the First Article. First Article. vThis is the First Article. This is the First Article. This is the First Article. This is the First Article. </p>
-            
-    <p>This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. </p>
-            
-    <p>This is the First Article.This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article.  </p>`
-     },
-    'article-two':{
-        title:'Article two|Madhan',
-    heading:'Article two',
-    date:'6 sep 16',
-    content:`
-    <p>This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .</p>
-    <p>This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .</p>
-    <p>This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .This is the Second Article .</p>`
-    },
-    'article-three':{
-        title:'Article three|Madhan',
-    heading:'Article three',
-    date:'7 sep 16',
-    content:`
-    <p>This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .</p>
-    <p>This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .</p>
-    <p>This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .This is the third article .</p>`
-    }
-    
-};
-
-function createtemplate(data){
-    var date=data.date;
-    var title=data.title;
-    var content=data.content;
-    var htmltemplate =`
-        <html>
-            <head>
-                <title> ${title}</title>
-                <meta name="viewport" content="width=device-width, initial-scale=1">
-           
-               <link href="/ui/style.css" rel="stylesheet" />
-         </head>
-            <body>
-            
-                <div class="container">
-                    <div>
-                        <a href="/index.html">Home</a>
-                    </div><hr>
-                <div>
-                    ${date}
-                </div>
-                <div>
-                    ${content}
-                </div>
-            </div>
-            </body>
-        </html>
-        `;
-return htmltemplate; 
-}
+var articleOne = {
+    title:'Article one|Madhan',
+    heading:'Article one',
+    date:'20 sep 16',
+    content:` <p>This is the First Article.This is the First Article.This is the First Article. This is the First Article.  This is the First Article.   This is the First Article. This is the First Article. This is the First Article.  This is the First Article.  This is the First Article.  This is the First Article. This is the First Article.  This is the This is the First Article.  is the First Article. First Article. vThis is the First Article. This is the First Article. This is the First Article. This is the First Article. </p>
+            <p>This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. </p>
+            <p>This is the First Article.This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article. This is the First Article.  </p>`
+    };
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
